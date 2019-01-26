@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using timesheet.business;
 
 namespace timesheet.api.controllers
@@ -19,9 +14,16 @@ namespace timesheet.api.controllers
         }
 
         [HttpGet("getall")]
-        public IActionResult GetAll(string text)
+        public IActionResult GetAll()
         {
             var items = this.employeeService.GetEmployees();
+            return new ObjectResult(items);
+        }
+
+        [HttpGet("getalltasks")]
+        public IActionResult GetAllTasks()
+        {
+            var items = this.employeeService.GetAllTasks();
             return new ObjectResult(items);
         }
     }

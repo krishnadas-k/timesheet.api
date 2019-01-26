@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using timesheet.data;
 
 namespace timesheet.data.Migrations
 {
     [DbContext(typeof(TimesheetDb))]
-    partial class TimesheetDbModelSnapshot : ModelSnapshot
+    [Migration("20190126074813_AddEfforts")]
+    partial class AddEfforts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

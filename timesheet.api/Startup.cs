@@ -28,8 +28,10 @@ namespace timesheet.api
                                                     .AllowCredentials());
             });
 
-            services.AddDbContext<TimesheetDb>(options => 
+            services.AddMvc();
+            services.AddDbContext<TimesheetDb>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TimesheetDbConnection")));
+            services.AddTransient<EmployeeService, EmployeeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +43,7 @@ namespace timesheet.api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseMvc();
         }
     }
 }
